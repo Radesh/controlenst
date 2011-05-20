@@ -6,6 +6,7 @@ package nst.controlenst.persistence.dao.obj.impl;
 
 import java.util.List;
 import nst.controlenst.model.entity.Cargo;
+import nst.controlenst.persistence.dao.GenericHibernateDAO;
 import nst.controlenst.persistence.dao.factory.interfaces.CargoDAO;
 
 /**
