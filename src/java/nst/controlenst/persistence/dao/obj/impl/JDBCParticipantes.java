@@ -5,31 +5,31 @@
 package nst.controlenst.persistence.dao.obj.impl;
 
 import java.util.List;
-import nst.controlenst.model.entity.Cargo;
-import nst.controlenst.persistence.dao.GenericHibernateDAO;
-import nst.controlenst.persistence.dao.factory.interfaces.CargoDAO;
+import nst.controlenst.model.entity.Participante;
+import nst.controlenst.persistence.dao.factory.interfaces.ParticipanteDAO;
 
 /**
  *
  * @author pablosouza
  */
-public class JDBCCargo implements CargoDAO{
+public class JDBCParticipantes implements ParticipanteDAO{
     
-    private static JDBCCargo instancia = null;
+    private static JDBCParticipantes instancia = null;
     
-    private JDBCCargo(){
+    private JDBCParticipantes(){
         
     }
     
-    public static JDBCCargo getInstance(){
+    public static JDBCParticipantes getInstance(){
         if(instancia == null){
-            instancia = new JDBCCargo();
+            instancia = new JDBCParticipantes();
         }
+        
         return instancia;
     }
 
     @Override
-    public void delete(Cargo cargo) {
+    public void delete(Participante participante) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
@@ -39,12 +39,13 @@ public class JDBCCargo implements CargoDAO{
     }
 
     @Override
-    public Cargo getByPrimaryKey(Integer id) {
+    public Participante getByPrimaryKey(Integer id) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public void save(Cargo cargo) {
+    public void save(Participante participante) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
+    
 }

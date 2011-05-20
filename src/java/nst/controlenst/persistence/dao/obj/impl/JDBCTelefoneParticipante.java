@@ -5,31 +5,31 @@
 package nst.controlenst.persistence.dao.obj.impl;
 
 import java.util.List;
-import nst.controlenst.model.entity.Cargo;
-import nst.controlenst.persistence.dao.GenericHibernateDAO;
-import nst.controlenst.persistence.dao.factory.interfaces.CargoDAO;
+import nst.controlenst.model.entity.TelefoneParticipante;
+import nst.controlenst.persistence.dao.factory.interfaces.TelefoneParticipanteDAO;
 
 /**
  *
  * @author pablosouza
  */
-public class JDBCCargo implements CargoDAO{
+public class JDBCTelefoneParticipante implements TelefoneParticipanteDAO{
     
-    private static JDBCCargo instancia = null;
+    private static JDBCTelefoneParticipante instancia = null;
     
-    private JDBCCargo(){
+    private JDBCTelefoneParticipante(){
         
     }
     
-    public static JDBCCargo getInstance(){
+    public static JDBCTelefoneParticipante getInstance(){
         if(instancia == null){
-            instancia = new JDBCCargo();
+            instancia = new JDBCTelefoneParticipante();
         }
+        
         return instancia;
     }
 
     @Override
-    public void delete(Cargo cargo) {
+    public void delete(TelefoneParticipante telefone) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
@@ -39,12 +39,13 @@ public class JDBCCargo implements CargoDAO{
     }
 
     @Override
-    public Cargo getByPrimaryKey(Integer id) {
+    public TelefoneParticipante getByPrimaryKey(Integer id) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public void save(Cargo cargo) {
+    public void save(TelefoneParticipante telefone) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
+    
 }

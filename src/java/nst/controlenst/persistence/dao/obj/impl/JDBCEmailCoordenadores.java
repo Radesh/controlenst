@@ -5,31 +5,31 @@
 package nst.controlenst.persistence.dao.obj.impl;
 
 import java.util.List;
-import nst.controlenst.model.entity.Cargo;
-import nst.controlenst.persistence.dao.GenericHibernateDAO;
-import nst.controlenst.persistence.dao.factory.interfaces.CargoDAO;
+import nst.controlenst.model.entity.EmailCoordenador;
+import nst.controlenst.persistence.dao.factory.interfaces.EmailCoordenadorDAO;
 
 /**
  *
  * @author pablosouza
  */
-public class JDBCCargo implements CargoDAO{
+public class JDBCEmailCoordenadores implements EmailCoordenadorDAO{
     
-    private static JDBCCargo instancia = null;
+    private static JDBCEmailCoordenadores instancia = null;
     
-    private JDBCCargo(){
+    private JDBCEmailCoordenadores(){
         
     }
     
-    public static JDBCCargo getInstance(){
+    public static JDBCEmailCoordenadores getInstance(){
         if(instancia == null){
-            instancia = new JDBCCargo();
+            instancia = new JDBCEmailCoordenadores();
         }
+        
         return instancia;
     }
 
     @Override
-    public void delete(Cargo cargo) {
+    public void delete(EmailCoordenador email) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
@@ -39,12 +39,13 @@ public class JDBCCargo implements CargoDAO{
     }
 
     @Override
-    public Cargo getByPrimaryKey(Integer id) {
+    public EmailCoordenador getByPrimaryKey(Integer id) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public void save(Cargo cargo) {
+    public void save(EmailCoordenador email) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
+    
 }
