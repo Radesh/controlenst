@@ -1,17 +1,16 @@
-package nst.controlenst.persistence.dao.util;
+package nst.controlenst.persistence.dao.connection;
 
-import nst.controlenst.model.entity.Cargo;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.AnnotationConfiguration;
 
-public class FHibernate {
+public class ConnectionHIBERNATE {
 
-    private static FHibernate instancia = null;
+    private static ConnectionHIBERNATE instancia = null;
     
     private SessionFactory sessionFactory;
 
-    private FHibernate() {
+    private ConnectionHIBERNATE() {
 
         sessionFactory = new AnnotationConfiguration()
                 .setProperty("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect")
@@ -40,9 +39,9 @@ public class FHibernate {
         return retorno;
     }
 
-    public static FHibernate getInstance() {
+    public static ConnectionHIBERNATE getInstance() {
         if (instancia == null) {
-            instancia = new FHibernate();
+            instancia = new ConnectionHIBERNATE();
         }
         return instancia;
     }

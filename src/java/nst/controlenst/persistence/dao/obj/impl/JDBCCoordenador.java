@@ -4,17 +4,30 @@
  */
 package nst.controlenst.persistence.dao.obj.impl;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import nst.controlenst.model.entity.Coordenador;
+import nst.controlenst.persistence.dao.GenericJDBCDAO;
 import nst.controlenst.persistence.dao.factory.interfaces.CoordenadorDAO;
 
 /**
  *
  * @author pablosouza
  */
-public class JDBCCoordenador implements CoordenadorDAO {
+public class JDBCCoordenador extends GenericJDBCDAO implements CoordenadorDAO {
     
     private static JDBCCoordenador instancia = null;
+    
+    
+    private static final String SQL_ADD_COORDENADOR = "INSERT INTO COORDENADORES(COORD_NOME, COORD_EMAIL) VALUES (?, ?)";
+    private static final String SQL_UPD_COORDENADOR = "UPDATE COORDENADORES SET COORD_NOME = ?, COORD_EMAIL = ? WHERE COORD_ID = ?";
+    private static final String SQL_DEL_COORDENADOR = "DELETE FROM COORDENADORES WHERE COORD_ID = ?";
+    private static final String SQL_SEL_BYID = "SELECT * FROM COORDENADORES WHERE COORD_ID= ?";
+    private static final String SQL_SEL_ALL = "SELECT * FROM COORDENADORES";
     
     private JDBCCoordenador(){
         
@@ -29,22 +42,74 @@ public class JDBCCoordenador implements CoordenadorDAO {
 
     @Override
     public void delete(Coordenador coordenador) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        try {
+            executarComando(SQL_DEL_COORDENADOR, coordenador.getId());
+        } catch (SQLException ex) {
+            Logger.getLogger(JDBCCoordenador.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @Override
     public List getAll() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        List<Coordenador> coordenadores = new ArrayList<Coordenador>();
+        try {
+            ResultSet rs = executarQuery(SQL_SEL_ALL);
+            if(rs.next()){
+                do{
+                    Coordenador coord = (Coordenador) preencherEntidade(rs);
+                    coordenadores.add(coord);
+                }while(rs.next());
+            }
+            rs.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(JDBCCoordenador.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return coordenadores;
     }
 
     @Override
     public Coordenador getByPrimaryKey(Integer id) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        Coordenador coordenador = null;
+        try {
+            ResultSet rs = executarQuery(SQL_SEL_BYID, id);
+            if(rs.next()){
+                coordenador = (Coordenador) preencherEntidade(rs);
+            }
+            rs.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(JDBCCoordenador.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return coordenador;
     }
 
     @Override
     public void save(Coordenador coordenador) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        /*
+         * 
+         */
+        if(coordenador.getId() == null || coordenador.getId() == 0){
+            try {
+                executarComando(SQL_ADD_COORDENADOR, coordenador.getNome(), coordenador.getEmail());
+            } catch (SQLException ex) {
+                Logger.getLogger(JDBCCoordenador.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }else{
+            try {
+                executarComando(SQL_UPD_COORDENADOR, coordenador.getNome(), coordenador.getEmail(), coordenador.getId());
+            } catch (SQLException ex) {
+                Logger.getLogger(JDBCCoordenador.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+    }
+
+    @Override
+    public Object preencherEntidade(ResultSet rs) throws SQLException {
+        Coordenador coordenador = new Coordenador();
+        coordenador.setId(rs.getInt("coord_id"));
+        coordenador.setNome(rs.getString("coord_nome"));
+        coordenador.setEmail(rs.getString("coord_email"));
+        return coordenador;
     }
     
 }

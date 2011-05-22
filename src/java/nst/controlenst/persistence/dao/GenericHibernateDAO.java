@@ -1,6 +1,6 @@
 package nst.controlenst.persistence.dao;
 
-import nst.controlenst.persistence.dao.util.FHibernate;
+import nst.controlenst.persistence.dao.connection.ConnectionHIBERNATE;
 import java.io.Serializable;
 import java.util.List;
 
@@ -13,7 +13,7 @@ public class GenericHibernateDAO {
     }
 
     protected Session getSession() {
-        return FHibernate.getInstance().getSession();
+        return ConnectionHIBERNATE.getInstance().getSession();
     }
 
     protected Serializable getPurePojo(String query, Object... params) {
