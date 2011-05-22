@@ -97,7 +97,7 @@ public class JDBCCargo extends GenericJDBCDAO implements CargoDAO {
     }
 
     @Override
-    public Object preencherEntidade(ResultSet rs) throws SQLException {
+    protected Object preencherEntidade(ResultSet rs) throws SQLException {
         Cargo cargo = new Cargo();
         cargo.setDescricao(rs.getString("CARG_DESCRICAO"));
         cargo.setId(rs.getInt("CARG_ID"));

@@ -4,15 +4,18 @@
  */
 package nst.controlenst.persistence.dao.obj.impl;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 import nst.controlenst.model.entity.EmailParticipante;
+import nst.controlenst.persistence.dao.GenericJDBCDAO;
 import nst.controlenst.persistence.dao.factory.interfaces.EmailParticipanteDAO;
 
 /**
  *
  * @author pablosouza
  */
-public class JDBCEmailParticipante implements EmailParticipanteDAO{
+public class JDBCEmailParticipante extends GenericJDBCDAO implements EmailParticipanteDAO{
     
     private static JDBCEmailParticipante instancia = null;
     
@@ -46,6 +49,11 @@ public class JDBCEmailParticipante implements EmailParticipanteDAO{
 
     @Override
     public void save(EmailParticipante email) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    protected Object preencherEntidade(ResultSet rs) throws SQLException {
         throw new UnsupportedOperationException("Not supported yet.");
     }
     
