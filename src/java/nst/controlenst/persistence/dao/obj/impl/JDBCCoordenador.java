@@ -106,9 +106,9 @@ public class JDBCCoordenador extends GenericJDBCDAO implements CoordenadorDAO {
     @Override
     public Object preencherEntidade(ResultSet rs) throws SQLException {
         Coordenador coordenador = new Coordenador();
-        coordenador.setId(rs.getInt("coord_id"));
-        coordenador.setNome(rs.getString("coord_nome"));
-        coordenador.setEmail(rs.getString("coord_email"));
+        coordenador.setId(rs.getInt("COORD_ID"));
+        coordenador.setNome(rs.getString("COORD_NOME"));
+        coordenador.setEmail(rs.getString("COORD_EMAIL"));
         return coordenador;
     }
     
