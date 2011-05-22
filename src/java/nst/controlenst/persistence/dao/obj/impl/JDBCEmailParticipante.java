@@ -19,7 +19,6 @@ public class JDBCEmailParticipante extends GenericJDBCDAO implements EmailPartic
     
     private static JDBCEmailParticipante instancia = null;
     
-    
     private JDBCEmailParticipante(){
     
     }

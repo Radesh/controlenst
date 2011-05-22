@@ -11,23 +11,13 @@ package nst.controlenst.model.entity;
 public class Coordenador {
     private Integer id;
     private String nome;
-    private String email;
 
     public Coordenador() {
     }
 
-    public Coordenador(Integer id, String nome, String email) {
+    public Coordenador(Integer id, String nome) {
         this.id = id;
         this.nome = nome;
-        this.email = email;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public Integer getId() {
@@ -61,20 +51,18 @@ public class Coordenador {
         if ((this.nome == null) ? (other.nome != null) : !this.nome.equals(other.nome)) {
             return false;
         }
-        if ((this.email == null) ? (other.email != null) : !this.email.equals(other.email)) {
-            return false;
-        }
         return true;
     }
 
     @Override
     public int hashCode() {
         int hash = 3;
-        hash = 41 * hash + (this.id != null ? this.id.hashCode() : 0);
-        hash = 41 * hash + (this.nome != null ? this.nome.hashCode() : 0);
-        hash = 41 * hash + (this.email != null ? this.email.hashCode() : 0);
+        hash = 31 * hash + (this.id != null ? this.id.hashCode() : 0);
+        hash = 31 * hash + (this.nome != null ? this.nome.hashCode() : 0);
         return hash;
     }
+
+   
     
     
     

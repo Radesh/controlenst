@@ -23,13 +23,13 @@ public class JDBCCoordenador extends GenericJDBCDAO implements CoordenadorDAO {
     private static JDBCCoordenador instancia = null;
     
     
-    private static final String SQL_ADD_COORDENADOR = "INSERT INTO COORDENADORES(COORD_NOME, COORD_EMAIL) VALUES (?, ?)";
-    private static final String SQL_UPD_COORDENADOR = "UPDATE COORDENADORES SET COORD_NOME = ?, COORD_EMAIL = ? WHERE COORD_ID = ?";
+    private static final String SQL_ADD_COORDENADOR = "INSERT INTO COORDENADORES(COORD_NOME) VALUES (?, ?)";
+    private static final String SQL_UPD_COORDENADOR = "UPDATE COORDENADORES SET COORD_NOME = ? WHERE COORD_ID = ?";
     private static final String SQL_DEL_COORDENADOR = "DELETE FROM COORDENADORES WHERE COORD_ID = ?";
     private static final String SQL_SEL_BYID = "SELECT * FROM COORDENADORES WHERE COORD_ID= ?";
     private static final String SQL_SEL_ALL = "SELECT * FROM COORDENADORES";
     
-    private JDBCCoordenador(){
+    private  JDBCCoordenador(){
         
     }
     
@@ -89,13 +89,13 @@ public class JDBCCoordenador extends GenericJDBCDAO implements CoordenadorDAO {
          */
         if(coordenador.getId() == null || coordenador.getId() == 0){
             try {
-                executarComando(SQL_ADD_COORDENADOR, coordenador.getNome(), coordenador.getEmail());
+                executarComando(SQL_ADD_COORDENADOR, coordenador.getNome());
             } catch (SQLException ex) {
                 Logger.getLogger(JDBCCoordenador.class.getName()).log(Level.SEVERE, null, ex);
             }
         }else{
             try {
-                executarComando(SQL_UPD_COORDENADOR, coordenador.getNome(), coordenador.getEmail(), coordenador.getId());
+                executarComando(SQL_UPD_COORDENADOR, coordenador.getNome(), coordenador.getId());
             } catch (SQLException ex) {
                 Logger.getLogger(JDBCCoordenador.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -108,7 +108,6 @@ public class JDBCCoordenador extends GenericJDBCDAO implements CoordenadorDAO {
         Coordenador coordenador = new Coordenador();
         coordenador.setId(rs.getInt("COORD_ID"));
         coordenador.setNome(rs.getString("COORD_NOME"));
-        coordenador.setEmail(rs.getString("COORD_EMAIL"));
         return coordenador;
     }
     

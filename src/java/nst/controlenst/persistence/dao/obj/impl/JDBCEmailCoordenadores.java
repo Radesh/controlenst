@@ -107,13 +107,7 @@ public class JDBCEmailCoordenadores extends GenericJDBCDAO implements EmailCoord
     @Override
     protected Object preencherEntidade(ResultSet rs) throws SQLException {
         EmailCoordenador email = new EmailCoordenador();
-        CoordenadorDAO coordenadorDao = null;
-        try {
-            ControlaFabricasDAO.setFactoryType(new JDBCFactory());
-            coordenadorDao = ControlaFabricasDAO.getFactoryType().getCoordenadorDAO();
-        } catch (Exception ex) {
-            Logger.getLogger(JDBCEmailCoordenadores.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        CoordenadorDAO coordenadorDao = JDBCCoordenador.getInstance(); 
         email.setCoordenador(coordenadorDao.getByPrimaryKey(rs.getInt("fk_coord_id")));
         email.setDescricao(rs.getString("email_coord_descricao"));
         email.setId(rs.getInt("email_coord_id"));
