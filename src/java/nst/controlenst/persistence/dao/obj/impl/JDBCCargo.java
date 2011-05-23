@@ -21,6 +21,7 @@ import nst.controlenst.persistence.dao.factory.interfaces.CargoDAO;
 public class JDBCCargo extends GenericJDBCDAO implements CargoDAO {
 
     private static JDBCCargo instancia = null;
+    
     private static final String SQL_ADD_CARGO = "INSERT INTO CARGOS(CARG_DESCRICAO) VALUES (?)";
     private static final String SQL_UPD_CARGO = "UPDATE CARGOS SET CARG_DESCRICAO = ? WHERE CARG_ID = ?";
     private static final String SQL_DEL_CARGO = "DELETE FROM CARGOS WHERE CARG_ID = ?";

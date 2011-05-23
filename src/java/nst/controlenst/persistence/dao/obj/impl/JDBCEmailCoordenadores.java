@@ -10,13 +10,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import nst.controlenst.model.entity.Coordenador;
 import nst.controlenst.model.entity.EmailCoordenador;
 import nst.controlenst.persistence.dao.GenericJDBCDAO;
-import nst.controlenst.persistence.dao.factory.impl.JDBCFactory;
 import nst.controlenst.persistence.dao.factory.interfaces.CoordenadorDAO;
 import nst.controlenst.persistence.dao.factory.interfaces.EmailCoordenadorDAO;
-import nst.controlenst.persistence.dao.util.ControlaFabricasDAO;
+
 
 /**
  *
@@ -25,6 +23,7 @@ import nst.controlenst.persistence.dao.util.ControlaFabricasDAO;
 public class JDBCEmailCoordenadores extends GenericJDBCDAO implements EmailCoordenadorDAO {
 
     private static JDBCEmailCoordenadores instancia = null;
+    
     private static final String SQL_ADD_EMAIL = "INSERT INTO emails_coordenadores(email_coord_descricao, fk_coord_id) VALUES (?,?)";
     private static final String SQL_UPD_EMAIL = "UPDATE emails_coordenadores SET email_coord_descricao = ?, fk_coord_id = ? WHERE email_coord_id = ?";
     private static final String SQL_DEL_EMAIL = "DELETE FROM emails_coordenadores WHERE email_coord_id = ?";
@@ -90,7 +89,7 @@ public class JDBCEmailCoordenadores extends GenericJDBCDAO implements EmailCoord
     public void save(EmailCoordenador email) {
         if (email.getId() == null || email.getId() == 0) {
             try {
-                executarComando(SQL_ADD_EMAIL, email.getDescricao(), email.getCoordenador().getId(), email.getId());
+                executarComando(SQL_ADD_EMAIL, email.getDescricao(), email.getCoordenador().getId());
             } catch (SQLException ex) {
                 Logger.getLogger(JDBCEmailCoordenadores.class.getName()).log(Level.SEVERE, null, ex);
             }

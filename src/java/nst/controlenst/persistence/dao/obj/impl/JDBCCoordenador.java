@@ -23,7 +23,7 @@ public class JDBCCoordenador extends GenericJDBCDAO implements CoordenadorDAO {
     private static JDBCCoordenador instancia = null;
     
     
-    private static final String SQL_ADD_COORDENADOR = "INSERT INTO COORDENADORES(COORD_NOME) VALUES (?, ?)";
+    private static final String SQL_ADD_COORDENADOR = "INSERT INTO COORDENADORES(COORD_NOME) VALUES (?)";
     private static final String SQL_UPD_COORDENADOR = "UPDATE COORDENADORES SET COORD_NOME = ? WHERE COORD_ID = ?";
     private static final String SQL_DEL_COORDENADOR = "DELETE FROM COORDENADORES WHERE COORD_ID = ?";
     private static final String SQL_SEL_BYID = "SELECT * FROM COORDENADORES WHERE COORD_ID= ?";
@@ -104,7 +104,7 @@ public class JDBCCoordenador extends GenericJDBCDAO implements CoordenadorDAO {
     }
 
     @Override
-    public Object preencherEntidade(ResultSet rs) throws SQLException {
+    protected Object preencherEntidade(ResultSet rs) throws SQLException {
         Coordenador coordenador = new Coordenador();
         coordenador.setId(rs.getInt("COORD_ID"));
         coordenador.setNome(rs.getString("COORD_NOME"));

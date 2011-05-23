@@ -29,7 +29,7 @@ import nst.controlenst.persistence.dao.obj.impl.JDBCEmailParticipante;
 import nst.controlenst.persistence.dao.obj.impl.JDBCHIstoricoCoordenador;
 import nst.controlenst.persistence.dao.obj.impl.JDBCHistoricoParticipantes;
 import nst.controlenst.persistence.dao.obj.impl.JDBCMotivoSaida;
-import nst.controlenst.persistence.dao.obj.impl.JDBCParticipantes;
+import nst.controlenst.persistence.dao.obj.impl.JDBCParticipante;
 import nst.controlenst.persistence.dao.obj.impl.JDBCProjeto;
 import nst.controlenst.persistence.dao.obj.impl.JDBCSituacao;
 import nst.controlenst.persistence.dao.obj.impl.JDBCTelefoneCoordenador;
@@ -108,7 +108,7 @@ public class JDBCFactory implements DAOFactory{
 
     @Override
     public ParticipanteDAO getParticipanteDAO() {
-        return JDBCParticipantes.getInstance();
+        return JDBCParticipante.getInstance();
     }
 
     @Override
