@@ -16,7 +16,7 @@ public class ConnectionJDBC {
 
                 Class.forName("org.postgresql.Driver");
                 conexao = (Connection) DriverManager.getConnection(
-                        "jdbc:postgresql://localhost:5432/CONTROLE_NST", "postgres", "deliciadecoco");
+                        "jdbc:postgresql://localhost:5432/controle_nst", "postgres", "deliciadecoco");
                 //System.out.println("Conexao realizada com sucesso!");
             } catch (Exception ex) {
                 System.out.println("Ocorreu o seguinte erro: " + ex);
