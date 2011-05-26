@@ -4,6 +4,7 @@
  */
 package nst.controlenst.model.entity;
 
+import java.sql.Timestamp;
 import java.util.Date;
 
 /**
@@ -14,10 +15,10 @@ public class Projeto {
     private Integer id;
     private String nome;
     private String identificador;
-    private Date dataCadastro;
-    private Date dataInicio;
-    private Date dataEncerramentoPrevisto;
-    private Date dataEncerramento;
+    private Timestamp dataCadastro;
+    private Timestamp dataInicio;
+    private Timestamp dataEncerramentoPrevisto;
+    private Timestamp dataEncerramento;
     private String descricao;
     private Situacao situacao;
     private Tipo tipo;
@@ -25,7 +26,7 @@ public class Projeto {
     public Projeto() {
     }
 
-    public Projeto(Integer id, String nome, String identificador, Date dataCadastro, Date dataInicio, Date dataEncerramentoPrevisto, Date dataEncerramento, String descricao, Situacao situacao, Tipo tipo) {
+    public Projeto(Integer id, String nome, String identificador, Timestamp dataCadastro, Timestamp dataInicio, Timestamp dataEncerramentoPrevisto, Timestamp dataEncerramento, String descricao, Situacao situacao, Tipo tipo) {
         this.id = id;
         this.nome = nome;
         this.identificador = identificador;
@@ -38,35 +39,35 @@ public class Projeto {
         this.tipo = tipo;
     }
 
-    public Date getDataCadastro() {
+    public Timestamp getDataCadastro() {
         return dataCadastro;
     }
 
-    public void setDataCadastro(Date dataCadastro) {
+    public void setDataCadastro(Timestamp dataCadastro) {
         this.dataCadastro = dataCadastro;
     }
 
-    public Date getDataEncerramento() {
+    public Timestamp getDataEncerramento() {
         return dataEncerramento;
     }
 
-    public void setDataEncerramento(Date dataEncerramento) {
+    public void setDataEncerramento(Timestamp dataEncerramento) {
         this.dataEncerramento = dataEncerramento;
     }
 
-    public Date getDataEncerramentoPrevisto() {
+    public Timestamp getDataEncerramentoPrevisto() {
         return dataEncerramentoPrevisto;
     }
 
-    public void setDataEncerramentoPrevisto(Date dataEncerramentoPrevisto) {
+    public void setDataEncerramentoPrevisto(Timestamp dataEncerramentoPrevisto) {
         this.dataEncerramentoPrevisto = dataEncerramentoPrevisto;
     }
 
-    public Date getDataInicio() {
+    public Timestamp getDataInicio() {
         return dataInicio;
     }
 
-    public void setDataInicio(Date dataInicio) {
+    public void setDataInicio(Timestamp dataInicio) {
         this.dataInicio = dataInicio;
     }
 
@@ -162,20 +163,18 @@ public class Projeto {
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 53 * hash + (this.id != null ? this.id.hashCode() : 0);
-        hash = 53 * hash + (this.nome != null ? this.nome.hashCode() : 0);
-        hash = 53 * hash + (this.identificador != null ? this.identificador.hashCode() : 0);
-        hash = 53 * hash + (this.dataCadastro != null ? this.dataCadastro.hashCode() : 0);
-        hash = 53 * hash + (this.dataInicio != null ? this.dataInicio.hashCode() : 0);
-        hash = 53 * hash + (this.dataEncerramentoPrevisto != null ? this.dataEncerramentoPrevisto.hashCode() : 0);
-        hash = 53 * hash + (this.dataEncerramento != null ? this.dataEncerramento.hashCode() : 0);
-        hash = 53 * hash + (this.descricao != null ? this.descricao.hashCode() : 0);
-        hash = 53 * hash + (this.situacao != null ? this.situacao.hashCode() : 0);
-        hash = 53 * hash + (this.tipo != null ? this.tipo.hashCode() : 0);
+        int hash = 7;
+        hash = 17 * hash + (this.id != null ? this.id.hashCode() : 0);
+        hash = 17 * hash + (this.nome != null ? this.nome.hashCode() : 0);
+        hash = 17 * hash + (this.identificador != null ? this.identificador.hashCode() : 0);
+        hash = 17 * hash + (this.dataCadastro != null ? this.dataCadastro.hashCode() : 0);
+        hash = 17 * hash + (this.dataInicio != null ? this.dataInicio.hashCode() : 0);
+        hash = 17 * hash + (this.dataEncerramentoPrevisto != null ? this.dataEncerramentoPrevisto.hashCode() : 0);
+        hash = 17 * hash + (this.dataEncerramento != null ? this.dataEncerramento.hashCode() : 0);
+        hash = 17 * hash + (this.descricao != null ? this.descricao.hashCode() : 0);
+        hash = 17 * hash + (this.situacao != null ? this.situacao.hashCode() : 0);
+        hash = 17 * hash + (this.tipo != null ? this.tipo.hashCode() : 0);
         return hash;
     }
-    
-    
     
 }

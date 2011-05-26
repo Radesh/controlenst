@@ -109,10 +109,10 @@ public class JDBCHIstoricoCoordenador extends GenericJDBCDAO implements Historic
         ProjetoDAO projetoDAO = JDBCProjeto.getInstance();
         historicoCoordenador.setId(rs.getInt("histc_id"));
         historicoCoordenador.setCoordenador(coordDAO.getByPrimaryKey(rs.getInt("fk_coord_id")));
-        historicoCoordenador.setDataEntrada(rs.getDate("histc_dt_entrada"));
-        historicoCoordenador.setDataSaida(rs.getDate("histc_dt_saida"));
+        historicoCoordenador.setDataEntrada(rs.getTimestamp("histc_dt_entrada"));
+        historicoCoordenador.setDataSaida(rs.getTimestamp("histc_dt_saida"));
         historicoCoordenador.setMotivoSaida(rs.getString("histc_motivo_saida"));
-        historicoCoordenador.setProjeto(projetoDAO.getByPrimaryKey(rs.getInt("fk_proj_id")));
+        //historicoCoordenador.setProjeto(projetoDAO.getByPrimaryKey(rs.getInt("fk_proj_id")));
         
         return historicoCoordenador;
     }

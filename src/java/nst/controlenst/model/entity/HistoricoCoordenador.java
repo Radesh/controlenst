@@ -4,6 +4,7 @@
  */
 package nst.controlenst.model.entity;
 
+import java.sql.Timestamp;
 import java.util.Date;
 
 /**
@@ -12,8 +13,8 @@ import java.util.Date;
  */
 public class HistoricoCoordenador {
     private Integer id;
-    private Date dataEntrada;
-    private Date dataSaida;
+    private Timestamp dataEntrada;
+    private Timestamp dataSaida;
     private String motivoSaida;
     private Coordenador coordenador;
     private Projeto projeto;
@@ -21,7 +22,7 @@ public class HistoricoCoordenador {
     public HistoricoCoordenador() {
     }
 
-    public HistoricoCoordenador(Integer id, Date dataEntrada, Date dataSaida, String motivoSaida, Coordenador coordenador, Projeto projeto) {
+    public HistoricoCoordenador(Integer id, Timestamp dataEntrada, Timestamp dataSaida, String motivoSaida, Coordenador coordenador, Projeto projeto) {
         this.id = id;
         this.dataEntrada = dataEntrada;
         this.dataSaida = dataSaida;
@@ -38,19 +39,19 @@ public class HistoricoCoordenador {
         this.coordenador = coordenador;
     }
 
-    public Date getDataEntrada() {
+    public Timestamp getDataEntrada() {
         return dataEntrada;
     }
 
-    public void setDataEntrada(Date dataEntrada) {
+    public void setDataEntrada(Timestamp dataEntrada) {
         this.dataEntrada = dataEntrada;
     }
 
-    public Date getDataSaida() {
+    public Timestamp getDataSaida() {
         return dataSaida;
     }
 
-    public void setDataSaida(Date dataSaida) {
+    public void setDataSaida(Timestamp dataSaida) {
         this.dataSaida = dataSaida;
     }
 
@@ -90,35 +91,16 @@ public class HistoricoCoordenador {
         if (this.id != other.id && (this.id == null || !this.id.equals(other.id))) {
             return false;
         }
-        if (this.dataEntrada != other.dataEntrada && (this.dataEntrada == null || !this.dataEntrada.equals(other.dataEntrada))) {
-            return false;
-        }
-        if (this.dataSaida != other.dataSaida && (this.dataSaida == null || !this.dataSaida.equals(other.dataSaida))) {
-            return false;
-        }
-        if ((this.motivoSaida == null) ? (other.motivoSaida != null) : !this.motivoSaida.equals(other.motivoSaida)) {
-            return false;
-        }
-        if (this.coordenador != other.coordenador && (this.coordenador == null || !this.coordenador.equals(other.coordenador))) {
-            return false;
-        }
-        if (this.projeto != other.projeto && (this.projeto == null || !this.projeto.equals(other.projeto))) {
-            return false;
-        }
         return true;
     }
 
     @Override
     public int hashCode() {
         int hash = 3;
-        hash = 71 * hash + (this.id != null ? this.id.hashCode() : 0);
-        hash = 71 * hash + (this.dataEntrada != null ? this.dataEntrada.hashCode() : 0);
-        hash = 71 * hash + (this.dataSaida != null ? this.dataSaida.hashCode() : 0);
-        hash = 71 * hash + (this.motivoSaida != null ? this.motivoSaida.hashCode() : 0);
-        hash = 71 * hash + (this.coordenador != null ? this.coordenador.hashCode() : 0);
-        hash = 71 * hash + (this.projeto != null ? this.projeto.hashCode() : 0);
+        hash = 67 * hash + (this.id != null ? this.id.hashCode() : 0);
         return hash;
     }
-    
+
+
     
 }

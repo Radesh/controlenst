@@ -9,6 +9,7 @@ package nst.controlenst.model.entity;
  * @author pablosouza
  */
 public class EmailCoordenador {
+    
     private Integer id;
     private String descricao;
     private Coordenador coordenador;

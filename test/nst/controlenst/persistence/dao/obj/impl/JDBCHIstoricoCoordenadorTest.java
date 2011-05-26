@@ -5,7 +5,9 @@
 package nst.controlenst.persistence.dao.obj.impl;
 
 
+import java.text.SimpleDateFormat;
 import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.List;
 import nst.controlenst.model.entity.Coordenador;
 import nst.controlenst.model.entity.HistoricoCoordenador;
@@ -56,17 +58,18 @@ public class JDBCHIstoricoCoordenadorTest {
         Coordenador coordenador = new Coordenador();
         coordenador.setId(1);
         
-        java.util.Date DataUtil = new java.util.Date();
-        java.sql.Date dtValue = java.sql.Date.valueOf(DataUtil.toString());
-        System.out.println(dtValue.toString());
+        Date dataAtual = new Date(System.currentTimeMillis());
+        Timestamp tm = new Timestamp(System.currentTimeMillis());
         
-//        historico.setCoordenador(coordenador);
-//        historico.setDataEntrada(data);
-//        historico.setDataSaida(data);
-//        historico.setMotivoSaida("Sei la");
-//        historico.setProjeto(projeto);
-//        JDBCHIstoricoCoordenador instance = JDBCHIstoricoCoordenador.getInstance();
-//        instance.save(historico);
+
+        
+        historico.setCoordenador(coordenador);
+        historico.setDataEntrada(tm);
+        historico.setDataSaida(null);
+        historico.setMotivoSaida("Sei la");
+        historico.setProjeto(projeto);
+        JDBCHIstoricoCoordenador instance = JDBCHIstoricoCoordenador.getInstance();
+        instance.save(historico);
         
         
         
@@ -103,12 +106,15 @@ public class JDBCHIstoricoCoordenadorTest {
      */
     @Test
     public void testGetByPrimaryKey() {
+        
         System.out.println("getByPrimaryKey");
-        Integer id = null;
-        JDBCHIstoricoCoordenador instance = null;
-        HistoricoCoordenador expResult = null;
+        Integer id = 4;
+        JDBCHIstoricoCoordenador instance = JDBCHIstoricoCoordenador.getInstance();
         HistoricoCoordenador result = instance.getByPrimaryKey(id);
-        assertEquals(expResult, result);
+        assertNotNull(result);
+        String dataBanco = new SimpleDateFormat("dd/MM/yyyy").format(result.getDataEntrada());
+        System.out.println(dataBanco);
+        
 
     }
 

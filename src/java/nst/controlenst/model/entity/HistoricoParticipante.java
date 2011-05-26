@@ -4,6 +4,7 @@
  */
 package nst.controlenst.model.entity;
 
+import java.security.Timestamp;
 import java.util.Date;
 
 /**
@@ -11,9 +12,10 @@ import java.util.Date;
  * @author pablosouza
  */
 public class HistoricoParticipante {
+    
     private Integer id;
-    private Date entrada;
-    private Date saida;
+    private Timestamp entrada;
+    private Timestamp saida;
     private MotivoSaida motivoSaida;
     private Cargo cargo;
     private Curso curso;
@@ -41,11 +43,11 @@ public class HistoricoParticipante {
         this.curso = curso;
     }
 
-    public Date getEntrada() {
+    public Timestamp getEntrada() {
         return entrada;
     }
 
-    public void setEntrada(Date entrada) {
+    public void setEntrada(Timestamp entrada) {
         this.entrada = entrada;
     }
 
@@ -81,11 +83,11 @@ public class HistoricoParticipante {
         this.projeto = projeto;
     }
 
-    public Date getSaida() {
+    public Timestamp getSaida() {
         return saida;
     }
 
-    public void setSaida(Date saida) {
+    public void setSaida(Timestamp saida) {
         this.saida = saida;
     }
 
@@ -149,19 +151,20 @@ public class HistoricoParticipante {
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 31 * hash + (this.id != null ? this.id.hashCode() : 0);
-        hash = 31 * hash + (this.entrada != null ? this.entrada.hashCode() : 0);
-        hash = 31 * hash + (this.saida != null ? this.saida.hashCode() : 0);
-        hash = 31 * hash + (this.motivoSaida != null ? this.motivoSaida.hashCode() : 0);
-        hash = 31 * hash + (this.cargo != null ? this.cargo.hashCode() : 0);
-        hash = 31 * hash + (this.curso != null ? this.curso.hashCode() : 0);
-        hash = 31 * hash + (this.vinculo != null ? this.vinculo.hashCode() : 0);
-        hash = 31 * hash + (this.participante != null ? this.participante.hashCode() : 0);
-        hash = 31 * hash + (this.tipoIngresso != null ? this.tipoIngresso.hashCode() : 0);
-        hash = 31 * hash + (this.projeto != null ? this.projeto.hashCode() : 0);
+        int hash = 3;
+        hash = 41 * hash + (this.id != null ? this.id.hashCode() : 0);
+        hash = 41 * hash + (this.entrada != null ? this.entrada.hashCode() : 0);
+        hash = 41 * hash + (this.saida != null ? this.saida.hashCode() : 0);
+        hash = 41 * hash + (this.motivoSaida != null ? this.motivoSaida.hashCode() : 0);
+        hash = 41 * hash + (this.cargo != null ? this.cargo.hashCode() : 0);
+        hash = 41 * hash + (this.curso != null ? this.curso.hashCode() : 0);
+        hash = 41 * hash + (this.vinculo != null ? this.vinculo.hashCode() : 0);
+        hash = 41 * hash + (this.participante != null ? this.participante.hashCode() : 0);
+        hash = 41 * hash + (this.tipoIngresso != null ? this.tipoIngresso.hashCode() : 0);
+        hash = 41 * hash + (this.projeto != null ? this.projeto.hashCode() : 0);
         return hash;
     }
+    
     
     
 }
