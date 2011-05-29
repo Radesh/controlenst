@@ -4,7 +4,6 @@
  */
 package nst.controlenst.persistence.dao.obj.impl;
 
-import java.sql.ResultSet;
 import java.util.List;
 import nst.controlenst.model.entity.Vinculo;
 import org.junit.After;
@@ -21,6 +20,7 @@ import static org.junit.Assert.*;
 public class JDBCVinculoTest {
     
     public JDBCVinculoTest() {
+        
     }
 
     @BeforeClass
