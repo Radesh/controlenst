@@ -52,6 +52,18 @@ public class JDBCTipoIngressoTest {
         System.out.println("save:"+tipoIngresso.getDescricao());
         this.instance.save(tipoIngresso);
     }
+    
+    /**
+     * Test of save method, of class JDBCTipoIngresso.
+     */
+    @Test
+    public void testUpdate() {
+        TipoIngresso tipoIngresso = new TipoIngresso();
+        tipoIngresso.setDescricao("Testando a alteracao");
+        tipoIngresso.setId(3);
+        System.out.println("save:"+tipoIngresso.getDescricao());
+        this.instance.save(tipoIngresso);
+    }
 
     
     /**
