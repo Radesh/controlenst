@@ -6,7 +6,7 @@ package nst.controlenst.persistence.dao.obj.impl;
 
 import java.sql.ResultSet;
 import java.util.List;
-import nst.controlenst.model.entity.Cargo;
+import nst.controlenst.model.entity.Coordenador;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -18,12 +18,12 @@ import static org.junit.Assert.*;
  *
  * @author pablosouza
  */
-public class JDBCCargoTest {
+public class JDBCCoordenadorTest {
     
-    private JDBCCargo instance = null;
+    private JDBCCoordenador instance = null;
     
-    public JDBCCargoTest() {
-        instance = JDBCCargo.getInstance();
+    public JDBCCoordenadorTest() {
+        instance = JDBCCoordenador.getInstance();
     }
 
     @BeforeClass
@@ -43,68 +43,64 @@ public class JDBCCargoTest {
     }
 
     
-    
-        /**
-     * Test of save method, of class JDBCCargo.
+/**
+     * Test of save method, of class JDBCCoordenador.
      */
     @Test
     public void testSave() {
         System.out.println("save");
-        Cargo cargo = new Cargo();
-        cargo.setDescricao("Teste Cargo");
-        JDBCCargo instance = JDBCCargo.getInstance();
-        instance.save(cargo);
-        // TODO review the generated test code and remove the default call to fail.
+        Coordenador coordenador = new Coordenador();
+        coordenador.setNome("Sandro Arruda");
+        instance.save(coordenador);
+        
     }
     
-    
-            /**
-     * Test of save method, of class JDBCCargo.
+    /**
+     * Test of save method, of class JDBCCoordenador.
      */
     @Test
     public void testUpdate() {
-        System.out.println("update");
-        Cargo cargo = new Cargo();
-        cargo.setId(1);
-        cargo.setDescricao("testUpdate");
-        instance.save(cargo);
+        System.out.println("save");
+        Coordenador coordenador = new Coordenador();
+        coordenador.setId(1);
+        coordenador.setNome("Pablo souza alterado");
+        instance.save(coordenador);
         
     }
-
     /**
-     * Test of delete method, of class JDBCCargo.
+     * Test of delete method, of class JDBCCoordenador.
      */
     @Test
     public void testDelete() {
         System.out.println("delete");
-        Cargo cargo = new Cargo();
-        cargo.setId(2);
-        instance.delete(cargo);
+        Coordenador coordenador = new Coordenador();
+        coordenador.setId(2);
+        instance.delete(coordenador);
         
     }
 
     /**
-     * Test of getAll method, of class JDBCCargo.
+     * Test of getAll method, of class JDBCCoordenador.
      */
     @Test
     public void testGetAll() {
         System.out.println("getAll");
         List result = instance.getAll();
         assertNotNull(result);
-        
     }
 
     /**
-     * Test of getByPrimaryKey method, of class JDBCCargo.
+     * Test of getByPrimaryKey method, of class JDBCCoordenador.
      */
     @Test
     public void testGetByPrimaryKey() {
-        
+        System.out.println("getByPrimaryKey");
         Integer id = 1;
-        Cargo result = instance.getByPrimaryKey(id);
+        Coordenador result = instance.getByPrimaryKey(id);
         assertNotNull(result);
-        
     }
+
+    
 
     
 }
